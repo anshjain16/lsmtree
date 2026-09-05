@@ -1,0 +1,5 @@
+package wal
+
+import (
+	"testing"
+)
