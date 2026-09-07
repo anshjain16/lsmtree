@@ -96,7 +96,7 @@ func Clear(dest string) util.Status {
 
 	// check if the wal file exist or not
 	wal_filepath := dest + wal_filename
-	_, wal_file_exist := os.Stat(wal_filename)
+	_, wal_file_exist := os.Stat(wal_filepath)
 	if errors.Is(wal_file_exist, os.ErrNotExist) {
 		// DEBUG LOG
 		fmt.Println("WAL file does not exist", wal_file_exist)
@@ -117,6 +117,10 @@ func Clear(dest string) util.Status {
 }
 
 
+// Util: to get the WAL filepath easily
+func GetPath(db string) string {
+	return db + wal_filename
+}
 
 
 // Recover
